@@ -6,7 +6,7 @@ It works with minutes and seconds.
 ## Chrono
 
 ```javascript
-    class Chronometer {
+class Chronometer {
   constructor() {
     this.minutes = 0;
     this.seconds = 0;
@@ -26,23 +26,15 @@ It works with minutes and seconds.
 
   stop() {clearInterval(this.id)}
 
-  reset(){
-    this.id = setInterval(() => {
+  reset(){restartTimer => {
       this.seconds = 0;
       this.minutes = 0;
-      if (this.seconds == 60) {
-        this.seconds = 0;
-        this.minutes++;
-      } else {
-        this.seconds++;
+      return this;
       }
-    }, 1000);
   }
 
-  showTime(){ document.write(`Chronometer: ${this.minutes}:${this.seconds}`);
+  showTime() { document.getElementById("timer").innerText = `${this.minutes}:${this.seconds}`; }
 
-  }
-
-}
-let chrono = new Chronometer();
+} 
+let chrono = new Chronometer;
 ```

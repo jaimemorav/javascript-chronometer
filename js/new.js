@@ -7,7 +7,7 @@ class Chronometer {
 
   start() {
     this.id = setInterval(() => {
-      if (this.seconds == 59) {
+      if (this.seconds == 60) {
         this.seconds = 0;
         this.minutes++;
       } else {
@@ -16,15 +16,21 @@ class Chronometer {
     }, 1000);
   }
 
-  stop() {clearInterval(this.id)}
-
-  reset(){() => {
-      this.seconds = 0;
-      this.minutes = 0;
-      }
+  stop() {
+    clearInterval(this.id)
   }
 
-  showTime() { document.getElementById("timer").innerText = `${this.minutes}:${this.seconds}`; }
+  reset() {
+    () => {
+      this.seconds = 0;
+      this.minutes = 0;
+      this.showTime();
+    }
+  }
 
-} 
+  showTime() {
+    document.getElementById("timer").innerText = `${this.minutes}:${this.seconds}`;
+  }
+
+}
 let chrono = new Chronometer;
