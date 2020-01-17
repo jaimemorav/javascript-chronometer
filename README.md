@@ -29,7 +29,6 @@ class Chronometer {
   reset(){restartTimer => {
       this.seconds = 0;
       this.minutes = 0;
-      return this;
       }
   }
 
